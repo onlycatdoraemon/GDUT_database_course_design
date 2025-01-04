@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0         # 使用 MySQL 8.0 官方镜像
+    container_name: mysql    # 容器名称
+    environment:
+      MYSQL_ROOT_PASSWORD: your_password    # 设置 MySQL 根用户密码
+      # MYSQL_DATABASE: mydb                  # 创建一个名为 mydb 的数据库
+      # MYSQL_USER: myuser                    # 创建一个用户 myuser
+      # MYSQL_PASSWORD: userpassword         # myuser 的密码
+    ports:
+      - "3306:3306"                         # 映射容器的 3306 端口到主机的 3306 端口
+    volumes:
+      - mysql_data:/var/lib/mysql           # 持久化数据库数据
+    restart: always                          # 容器崩溃后自动重启
+
+volumes:
+  mysql_data:                                  # 定义一个持久化存储卷
+    driver: local
