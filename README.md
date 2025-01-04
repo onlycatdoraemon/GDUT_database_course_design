@@ -18,6 +18,6 @@ pip install pymysql pyqt5 cryptography
 ```
 
 ```python
-#运行
+#运行(在运行前记得去sql_manager.py 的DatabaseManager.open_db_connection修改自己对应的数据库信息（密码端口等）)
 python Run_mainUI.py
 ```
